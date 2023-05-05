@@ -28,16 +28,20 @@ else if (singleton!=this)
     Destroy(gameObject);
 }
 
+bestScore = PlayerPrefs.GetInt("HighScore");
+
 }
 
 public void NextLevel()
 {
-
+Debug.Log("Pasamos");
 }
 
 public void Restartlevel()
 {
-
+  Debug.Log("Restart");
+  singleton.currentScore = 0;
+  FindObjectOfType<BallController>().ResetBall();
 }
 
 public void AddScore(int scoreToAdd)
@@ -47,6 +51,7 @@ public void AddScore(int scoreToAdd)
     if (currentScore>bestScore)
     {
         bestScore = currentScore;
+        PlayerPrefs.SetInt("HighScore", currentScore);
     }
 }
    

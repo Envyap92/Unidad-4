@@ -9,12 +9,25 @@ private Vector2 lastPosition;
 
 private Vector3 startPosition;
 
-   
-    void Start()
-    {
-        startPosition = transform.localEulerAngles;
-    }
 
+public Transform TopTransform;
+public Transform goalTramsform;
+
+public GameObject helixLevelPrefab;
+
+public List<Stage> allStages = new List<Stage>();
+
+public float helixDistance;
+
+private List<GameObject> spawnedLevels = new List<GameObject>();
+
+
+private void Awake()
+{
+    startPosition = transform.localEulerAngles;
+    helixDistance = TopTransform.localPosition.y - (goalTramsform.localPosition.y + .1f);
+    //LoadStage(0);
+}
     
     void Update()
     {
@@ -41,4 +54,10 @@ private Vector3 startPosition;
         }
         
     }
+
+public void LoadStage(int stageNumber)
+{
+
+}
+
 }
